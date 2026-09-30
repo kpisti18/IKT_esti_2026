@@ -1,0 +1,36 @@
+body {
+    background: cadetblue;
+    /* color: white; */
+}
+
+p {
+    text-align: center;
+}
+
+table {
+    width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table {
+    border: 5px solid black;
+}
+
+th, td {
+    border: 2px solid black;
+}
+
+span {
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+img {
+    max-height: 200px;
+    float: right;
+}
