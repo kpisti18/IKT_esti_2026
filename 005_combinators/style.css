@@ -1,0 +1,62 @@
+/* a csillag az univerzális szelektor, minden html elemre érvényes */
+* {
+    margin: 0;
+    /* külső margó, ami az elemek közötti távolságot adja meg */
+    padding: 0;
+    /* belső margó, ami az elem tartal és a kerete (border) közötti távolságot adja meg */
+    box-sizing: border-box;
+    /* a content-box tulajdonságnál az elem szélességén felül bele számítódik a border és a paddig, border-box-nál pedig nem */
+}
+
+html {
+    font-size: 16px;
+    /* a teljes html-re vonatkozik, minden betűméret 16px-re állít. Ez a rem mértékegységnél lesz fontos */
+}
+
+body {
+    color: #333333;
+    /* betűszín */
+    background: wheat;
+    font-family: Arial, Helvetica, sans-serif; /* betűtípust állítja be */
+}
+
+header {
+    background: linear-gradient(135deg, lightblue, purple);
+    /* háttérszín, a linear-gradient színátmenetet eredményez világos kékből lilába jelen esetben */
+    text-align: center;
+    /* a body-n belül minden szöveget középre igazít */
+    padding: 2rem; /* a rem a gyökér (root) elemhez beállított betűméret 2szeresét állítja be jelenleg, a root elem a html. */
+}
+
+/* osztálykijelölő = class selector: a html fájlban class="", a css pedig . (ponttal) jelöljük. Az osztályokkal több elemre tudunk azonos formázási beállítást eszközölni */
+
+/* combinator példák */
+/* 1. DESCENDANT (space) */
+.cards p{
+    color: #555555;
+}
+
+/* 2. CHILD (>) */
+.card > h3 {
+    color: cadetblue;
+}
+
+.card > span {
+    font-style: italic;
+}
+
+/* NEXT SIBLING (+) */
+article h3+p {
+    text-decoration: underline;
+}
+
+/* SUBSEQUENT SIBLING (~) */
+article h3~p {
+    margin-left: 2rem;
+}
+
+/* ezek kombinációi */
+.card.highlight>p {
+    color: crimson;
+    font-weight: bold;
+}
