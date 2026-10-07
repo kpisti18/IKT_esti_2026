@@ -1,0 +1,45 @@
+/* univerzális szelektor */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* nem számolja az elem szélességébe a belső margó (padding) és a keret (border) értékeit */
+}
+
+/* egyszerű szelektor, az ul egy blokk szintű elem */
+ul {
+    width: 500px;
+    margin: 0 auto; /* a külső margó felül-alul 0px, jobb-bal automatikus, amennyire be tudja tolni. Ezzel lehet blokk elemeket középre igazítani */
+    list-style: none; /* eltávolítja a felsorolás jeleket */
+}
+
+/* child combinator = a menu class-on belüli li gyerek elemek */
+.menu > li {
+    display: inline-block; /* a blokk elemek alapból egymás alatt jelennek meg, ezzel egymás mellé helyezzük */
+    margin: 20px; /* minden li elem köré 20px külső margó minden irányban */
+}
+
+li > a {
+    text-decoration: none; /* leszedi az összes dekorációt az 'a' tag-ről, pl az aláhúzást */
+    color: #333333; /* betűszín */
+    font-size: 20px; /* betűméret */
+    position: relative; /* az 'a' tagekre relatív pozíciót adunk */
+}
+
+/* pl a busz relatív pozíciójú, amikor felszálunk rá, és leülünk valahova, akkor a pozíciónk absolute lesz a szülő elemen belül (ez a busz vagy pl egy div). A busz mehet bárhova, és a buszon belül nem mozdulok */
+
+/* ál elem: :: - ez egy olyan elem, ami ott van, de nincs */
+li > a::after {
+    content: ''; /* a pseudo elemnél kötelezően megadandó, általában üres string */
+    position: absolute; /* itt állítottuk a pozíció absolute-ra, azaz együt mozog a 'a' taggel */
+    left: 0; /* az ál elem bal oldali pozíciója */
+    bottom: -2px; /* az ál elem alsó pozíciója a szülőhöz képest */
+    width: 0; /* az ál elem szélessége 0px */
+    height: 2px; 
+    background-color: cadetblue;
+    transition: width 3s ease; /* átmenet, amikor valami hatására, pl felé viszem az egeret, akkor a szélesség (width) 3 másodperc alatt lassan indulva egyre gyorsulva, végül visszalassúlva megy végbe */
+}
+
+/* ha az 'a' tag-re ráviszem az egeret (:hover = pseudo class), akkor a ::after (pseudo element) megváltozik, a transition-ben megadott feltételek szerint */
+li > a:hover::after {
+    width: 100%;
+}
