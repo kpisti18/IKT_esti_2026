@@ -6,3 +6,4 @@
 4. pseudo osztályok
 5. kombinátor szelektorok
 6. pseudo elemek
+7. környezetszennyezés ágazati gyakorló feladat
